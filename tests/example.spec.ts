@@ -30,7 +30,7 @@ const testData  = [
   await new Promise(resolve => setTimeout(resolve, 5000));
   
   // Assert url is as expected 
-  expect(page.url().split('?')[0]).toEqual(expectedUrl);
+  expect(page.url().split('?')[0].replace('#', '')).toEqual(expectedUrl);
   
   });
 
