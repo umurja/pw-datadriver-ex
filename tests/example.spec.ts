@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 /*
+
+/*
 const headerItems = ['About', 'Store', 'Gmail'];
 for (const item of headerItems) {
 test(`Header link 1 - ${item}`, async ({ page }) => {
@@ -13,6 +15,7 @@ test(`Header link 1 - ${item}`, async ({ page }) => {
   await expect(page.url().split('?')[0]).toEqual(expectedUrl(`${item}`));
 })};
 */
+
 
 const testData  = [
   { headerItem: 'About', expectedUrl: 'https://about.google/' },
@@ -46,13 +49,13 @@ await msg.args()[1].jsonValue(); // 42
 
 
   // Click the header Link.
-    await page.getByRole('link', {name: headerItem}).click();
+  await page.getByRole('link', {name: headerItem}).click();
+  
+  //await page.waitForLoadState();
+  await new Promise(resolve => setTimeout(resolve, 5000));
   
   // Assert url is as expected 
   expect(page.url().split('?')[0]).toEqual(expectedUrl);
-
-  
-
   
   });
 
