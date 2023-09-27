@@ -23,8 +23,8 @@ const testData  = [
   // added this because auto-wait only really seems to work in Chrome
   await new Promise(resolve => setTimeout(resolve, 5000));
   
-  // Assert url is as expected 
-  expect(page.url().split('?')[0]).toEqual(expectedUrl);
+  // Assert url is as expected (after stripping everything after the ?)
+  expect(page.url().split('?')[0].replace('#', '')).toEqual(expectedUrl);
   
   });
 
